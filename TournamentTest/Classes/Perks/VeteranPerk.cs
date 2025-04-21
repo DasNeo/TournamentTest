@@ -1,4 +1,4 @@
-﻿using TournamentTest.Characters.Interfaces;
+﻿using TournamentTest.Classes.Characters.Interfaces;
 using TournamentTest.Perks.Interfaces;
 
 namespace TournamentTest.Perks;

@@ -1,9 +1,4 @@
-﻿using TournamentTest.Characters.Interfaces;
-using TournamentTest.Classes.Characters;
-using TournamentTest.Classes.Items.Interfaces;
-using TournamentTest.Items;
-
-namespace TournamentTest.Characters;
+﻿namespace TournamentTest.Classes.Characters;
 
 public class Swordsman : Warrior
 {

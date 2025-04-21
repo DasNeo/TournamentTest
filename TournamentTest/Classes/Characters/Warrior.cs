@@ -1,6 +1,4 @@
-﻿using TournamentTest.Characters.Interfaces;
-using TournamentTest.Classes.Items.Interfaces;
-using TournamentTest.Items;
+﻿using TournamentTest.Classes.Characters.Interfaces;
 
 namespace TournamentTest.Classes.Characters;
 

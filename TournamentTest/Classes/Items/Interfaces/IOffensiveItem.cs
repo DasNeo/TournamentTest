@@ -2,5 +2,5 @@
 
 public interface IOffensiveItem : IItem
 {
-    public int Damage { get; set; }
+    public abstract int Damage { get; set; }
 }

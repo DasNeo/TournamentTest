@@ -1,11 +1,11 @@
 ﻿using System.Diagnostics;
+using TournamentTest.Classes.Items;
 using TournamentTest.Classes.Items.Interfaces;
-using TournamentTest.Items;
+using TournamentTest.Classes.Perks;
 using TournamentTest.Perks;
 using TournamentTest.Perks.Interfaces;
-using TournamentTest.Utils;
 
-namespace TournamentTest.Characters.Interfaces;
+namespace TournamentTest.Classes.Characters.Interfaces;
 
 public class BaseCharacter
 {

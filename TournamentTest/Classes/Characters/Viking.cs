@@ -1,7 +1,4 @@
-﻿using TournamentTest.Characters.Interfaces;
-using TournamentTest.Classes.Characters;
-
-namespace TournamentTest.Characters;
+﻿namespace TournamentTest.Classes.Characters;
 
 public class Viking : Warrior
 {

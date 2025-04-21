@@ -1,7 +1,6 @@
-﻿using System.Diagnostics;
-using TournamentTest.Classes.Items.Interfaces;
+﻿using TournamentTest.Classes.Items.Interfaces;
 
-namespace TournamentTest.Items;
+namespace TournamentTest.Classes.Items;
 
 public class BucklerItem : IDefensiveItem
 {

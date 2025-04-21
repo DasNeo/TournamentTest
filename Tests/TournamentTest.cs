@@ -1,5 +1,3 @@
-using NUnit.Framework;
-using TournamentTest.Characters;
 using TournamentTest.Classes.Characters;
 
 /*
