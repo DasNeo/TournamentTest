@@ -6,5 +6,5 @@ public interface IDefensiveItem : IItem
     public bool BlockAllDamage { get; set; }
     public int SelfDamageReduction { get; set; }
 
-    public int Use(ItemType attackerWeapon);
+    public int Use(ItemType attackerWeapon, int incomingDamage);
 }

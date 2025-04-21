@@ -9,6 +9,6 @@ public class AxeItem : IOffensiveItem
     public IItem.ItemType Type { get; set; } = IItem.ItemType.Axe;
     public int Cooldown { get; set; } = 0;
     public int Use() => Damage;
-    public event EventHandler? OnItemUsed;
+    public event EventHandler? OnItemBroken;
     public int Damage { get; set; } = 6;
 }

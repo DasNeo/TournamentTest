@@ -7,7 +7,7 @@ namespace TournamentTest.Characters;
 
 public class Swordsman : Warrior
 {
-    public Swordsman()
+    public Swordsman(string perk = "") : base(perk)
     {
         EquipItem("sword");
     }

@@ -5,7 +5,7 @@ namespace TournamentTest.Characters;
 
 public class Viking : Warrior
 {
-    public Viking() : base(120)
+    public Viking(string perk = "") : base(perk, 120)
     {
         EquipItem("axe");
     }

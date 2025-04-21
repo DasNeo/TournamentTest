@@ -62,7 +62,6 @@ namespace Tournament.Tests
          * a Great Sword is a two handed sword deliver 12 damages, but can attack only 2 every 3 )(attack ; attack ; no attack)
          * an armor : reduce all received damages by 3 & reduce delivered damages by one
          */
-        /*
         [Test]
         public void ArmoredSwordsmanVsHighlander()
         {
@@ -77,7 +76,6 @@ namespace Tournament.Tests
             Assert.AreEqual(0, swordsman.HitPoints());
             Assert.AreEqual(10, highlander.HitPoints());
         }
-        */
 
         /*
          * a vicious Swordsman is a Swordsman that put poison on his weapon.
@@ -85,8 +83,6 @@ namespace Tournament.Tests
          * a veteran Highlander goes Berserk once his hit points are under 30% of his initial total
          * once Berserk, he doubles his damages
          */
-        
-        /*
         [Test]
         public void ViciousSwordsmanVsVeteranHighlander()
         {
@@ -102,6 +98,5 @@ namespace Tournament.Tests
             Assert.AreEqual(1, swordsman.HitPoints());
             Assert.AreEqual(0, highlander.HitPoints());
         }
-        */
     }
 }

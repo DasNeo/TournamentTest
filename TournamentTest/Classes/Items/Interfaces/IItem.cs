@@ -7,7 +7,8 @@ public interface IItem
         Buckler,
         Axe,
         Armor,
-        Sword
+        Sword,
+        GreatSword
     }
     
     public string Name { get; set; }
@@ -17,5 +18,5 @@ public interface IItem
 
     public int Use();
 
-    public event EventHandler OnItemUsed;
+    public event EventHandler OnItemBroken;
 }
