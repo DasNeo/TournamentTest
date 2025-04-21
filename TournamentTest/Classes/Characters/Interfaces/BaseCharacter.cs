@@ -5,14 +5,17 @@ using TournamentTest.Utils;
 
 namespace TournamentTest.Characters.Interfaces;
 
-public interface ICharacter
+public class BaseCharacter(int health)
 {
-    public int Damage { get; set; }
-    public int Health { get; set; }
-    List<IItem> EquippedItems { get; set; }
-    
-    public void Engage(ICharacter other)
+    public int MaxHealth { get; init; } = health;
+    public int Health { get; set; } = health;
+    public List<IItem> EquippedItems { get; set; } = new List<IItem>();
+
+    private static int _engagementRound = 0;
+
+    public void Engage(BaseCharacter other)
     {
+        _engagementRound = 0;
         while (this.HitPoints() > 0 && other.HitPoints() > 0)
         {
             var weapon =
@@ -25,20 +28,25 @@ public interface ICharacter
             if (weapon is null || otherWeapon is null)
                 return;
             
-            other.TakeDamage(weapon.Use());
-            TakeDamage(otherWeapon.Use());
+            other.TakeDamage(weapon.Type, weapon.Use());
+            if (other.HitPoints() <= 0)
+                return;
+            TakeDamage(otherWeapon.Type, otherWeapon.Use());
+            if (HitPoints() <= 0)
+                return;
+            _engagementRound++;
         }
     }
 
-    public int HitPoints(int reduction = 0)
+    public int HitPoints(int reduction = -1)
     {
-        if (reduction != 0)
+        if (reduction != -1)
             Health = reduction;
         
-        return Health;
+        return Math.Clamp(Health, 0, MaxHealth);
     }
 
-    internal ICharacter EquipItem(string itemName)
+    internal BaseCharacter EquipItem(string itemName)
     {
         IItem newItem;
         switch (itemName)
@@ -75,16 +83,23 @@ public interface ICharacter
         item.OnItemUsed -= OnItemUsed;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(IItem.ItemType attackerWeapon, int amount)
     {
         int damageReduction = 0;
 
         foreach (var defensiveItem in EquippedItems
                      .Where(r => r is IDefensiveItem)
-                     .Cast<IDefensiveItem>())
+                     .Cast<IDefensiveItem>()
+                     .ToList())
         {
-            damageReduction += defensiveItem.Armor;
+            if (_engagementRound % defensiveItem.Cooldown != 0)
+                continue;
+            damageReduction += defensiveItem.Use(attackerWeapon);
+            if (defensiveItem.BlockAllDamage)
+                return;
         }
-        HitPoints(amount - damageReduction);
+
+        var calculatedDamage = amount - damageReduction;
+        HitPoints(Health - calculatedDamage);
     }
 }

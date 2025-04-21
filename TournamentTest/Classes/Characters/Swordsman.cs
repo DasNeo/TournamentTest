@@ -7,5 +7,10 @@ namespace TournamentTest.Characters;
 
 public class Swordsman : Warrior
 {
-
+    public Swordsman()
+    {
+        EquipItem("sword");
+    }
+    
+    public new Swordsman Equip(string name) => EquipItem(name) as Swordsman;
 }

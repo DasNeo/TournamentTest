@@ -13,6 +13,7 @@ public interface IItem
     public string Name { get; set; }
     public int Uses { get; set; }
     public ItemType Type { get; set; }
+    public int Cooldown { get; set; }
 
     public int Use();
 
